@@ -1,0 +1,126 @@
+<!DOCTYPE html>         
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>قسم السوشيال ميديا</title>
+  <link rel="stylesheet" href="style.css"> <!-- نفس ملف التنسيق -->
+  <style>
+    body {
+      background-color: #021733;
+      color: white;
+      font-family: "Cairo", sans-serif;
+      margin: 0;
+    }
+
+    h1 {
+      text-align: center;
+      color: #FC6736;
+      margin-top: 30px;
+    }
+
+    .inner-section {
+      display: flex;
+      justify-content: space-between;
+      gap: 30px;
+      padding: 60px 20px;
+      flex-wrap: wrap;
+    }
+
+    .inner-box {
+      background-color: #0C2D57;
+      border-radius: 15px;
+      padding: 25px;
+      flex: 1 1 30%;
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .inner-box:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+    }
+
+    .inner-box img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+      margin-bottom: 15px;
+      cursor: pointer;
+    }
+
+    .inner-box h3 {
+      color: #FC6736;
+      font-size: 22px;
+    }
+
+    /* 🔘 زر الرجوع */
+    .back-btn {
+      display: block;
+      width: fit-content;
+      margin: 40px auto;
+      background-color: #FC6736;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+      transition: background 0.3s ease, transform 0.3s ease;
+    }
+
+    .back-btn:hover {
+      background-color: #ff8555;
+      transform: scale(1.05);
+    }
+
+    @media (max-width: 768px) {
+      .inner-section {
+        flex-direction: column;
+        align-items: center;
+      }
+      .inner-box {
+        flex: 1 1 100%;
+        max-width: 90%;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>قسم السوشيال ميديا</h1>
+
+  <section class="inner-section">
+    <div class="inner-box">
+      <a href="socialgallery.html">
+        <img src="imgs/banner-1.jpg" alt="إدارة حسابات">
+      </a>
+      <h3>تصميمات </h3>
+      <p>خدمة إدارة صفحات التواصل الاجتماعي بشكل احترافي.</p>
+    </div>
+
+    <div class="inner-box">
+      <a href="social-gallery.html">
+        <img src="imgs/banner-1.jpg" alt="إدارة حسابات">
+
+      </a>
+      <h3>تصميم منشورات</h3>
+      <p>تصاميم جذابة لمحتوى السوشيال ميديا تزيد التفاعل.</p>
+    </div>
+
+    <div class="inner-box">
+      <a href="social-gallery.html">
+        <img src="imgs/banner-1.jpg" alt="إدارة حسابات">
+
+      </a>
+      <h3>إعلانات ممولة</h3>
+      <p>حملات تسويقية فعّالة لزيادة الوصول والمتابعين.</p>
+    </div>
+  </section>
+
+  <!-- 🔙 زر الرجوع للرئيسية -->
+  <a href="index.html" class="back-btn">رجوع للصفحة الرئيسية</a>
+
+</body>
+</html>

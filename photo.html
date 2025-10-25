@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>معرض السوشيال ميديا</title>
+  <style>
+    body {
+      background-color: #021733;
+      color: white;
+      font-family: "Cairo", sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #FC6736;
+      margin-bottom: 40px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+  
+
+    /* زر الرجوع */
+    a.back-btn {
+      display: block;
+      text-align: center;
+      margin-top: 40px;
+      background: #FC6736;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      transition: background 0.3s ease;
+    }
+
+    a.back-btn:hover {
+      background: #ff8555;
+    }
+
+    /* ✅ نافذة عرض الصورة */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 85%;
+      border-radius: 15px;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .lightbox.show {
+      display: flex;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .lightbox img.visible {
+      opacity: 1;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* زر الإغلاق */
+    .close-btn {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 40px;
+      color: #FC6736;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .close-btn:hover {
+      color: white;
+      transform: scale(1.1);
+    }
+
+    /* الأسهم */
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 50px;
+      color: #FC6736;
+      cursor: pointer;
+      user-select: none;
+      transition: 0.3s;
+    }
+
+    .arrow:hover {
+      color: white;
+      transform: translateY(-50%) scale(1.2);
+    }
+
+    .arrow.left {
+      left: 40px;
+    }
+
+    .arrow.right {
+      right: 40px;
+    }
+
+
+
+/* 🖼️ Before-After Container */
+.before-after {
+  position: relative;
+  width: 90%;
+  max-width: 1100px;
+  margin: 50px auto;
+  overflow: hidden;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  /* background: #000; */
+  /* height: 100vh; */
+}
+
+.ba-images {
+  position: relative;
+  width: 100%;
+  height: auto;
+}
+
+.ba-images img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* الصورة العلوية (بعد) */
+.ba-after {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50%;
+  height: 100%;
+  overflow: hidden;
+  clip-path: inset(0 50% 0 0);
+  transition: clip-path 0.3s ease;
+}
+
+/* السلايدر */
+#baRange {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  appearance: none;
+  height: 6px;
+  background: #ddd;
+  border-radius: 5px;
+  outline: none;
+  cursor: ew-resize;
+}
+
+/* شكل مقبض السلايدر */
+#baRange::-webkit-slider-thumb {
+  appearance: none;
+  width: 18px;
+  height: 18px;
+  background: #FC6736;
+  border-radius: 50%;
+  border: 2px solid #fff;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease;
+}
+
+#baRange::-webkit-slider-thumb:hover {
+  transform: scale(1.2);
+}
+
+/* النصوص (قبل/بعد) */
+.ba-labels {
+  display: flex;
+  justify-content: space-between;
+  position: absolute;
+  top: 15px;
+  left: 0;
+  width: 100%;
+  color: #fff;
+  font-weight: bold;
+  padding: 0 20px;
+  text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+  font-size: 1.1rem;
+}
+
+/* التعليق أسفل الصور */
+.before-after .caption {
+  font-size: 0.95rem;
+  color: #555;
+  margin-top: 15px;
+  font-style: italic;
+}
+
+/* 📱 موبايل */
+@media (max-width: 768px) {
+  #lulc-change {
+    padding: 60px 0;
+  }
+
+  #lulc-change h2 {
+    font-size: 1.6rem;
+  }
+
+  .before-after {
+    width: 95%;
+  }
+
+  .ba-labels {
+    font-size: 0.95rem;
+  }
+  
+
+  #baRange {
+    width: 90%;
+  }
+}
+
+
+
+  </style>
+</head>
+<body>
+
+  <h1> تصميمات الدمج </h1>
+
+  <div class="gallery">
+  <div class="before-after">
+      <div class="ba-images">
+        <img src="visual/PHOTO-(1).jpg" alt="قبل / Before" class="ba-before" />
+        <img src="visual/PHOTO-(2).jpg" alt="بعد / After" class="ba-after" />
+      </div>
+      <input type="range" id="baRange" min="0" max="100" value="50" />
+    
+      
+    </div>
+
+
+
+
+
+  </div>
+
+  <a href="index.html" class="back-btn">رجوع للقسم</a>
+
+  <!-- ✅ نافذة العرض -->
+  <div class="lightbox" id="lightbox">
+    <span class="close-btn" id="closeBtn">&times;</span>
+    <span class="arrow left" id="prev">&#10094;</span>
+    <img id="lightboxImg" src="" alt="">
+    <span class="arrow right" id="next">&#10095;</span>
+  </div>
+
+  <script>
+    const images = document.querySelectorAll('.gallery img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const closeBtn = document.getElementById('closeBtn');
+    const nextBtn = document.getElementById('next');
+    const prevBtn = document.getElementById('prev');
+
+    let currentIndex = 0;
+
+    images.forEach((img, index) => {
+      img.addEventListener('click', () => {
+        currentIndex = index;
+        showImage();
+      });
+    });
+
+    function showImage() {
+      lightboxImg.classList.remove('visible'); // اخفاء تدريجي
+      setTimeout(() => {
+        lightboxImg.src = images[currentIndex].src;
+        lightbox.classList.add('show');
+        setTimeout(() => lightboxImg.classList.add('visible'), 100);
+      }, 200);
+    }
+
+    closeBtn.addEventListener('click', () => {
+      lightbox.classList.remove('show');
+      lightboxImg.classList.remove('visible');
+    });
+
+    nextBtn.addEventListener('click', () => {
+      lightboxImg.classList.remove('visible');
+      setTimeout(() => {
+        currentIndex = (currentIndex + 1) % images.length;
+        lightboxImg.src = images[currentIndex].src;
+        setTimeout(() => lightboxImg.classList.add('visible'), 100);
+      }, 200);
+    });
+
+    prevBtn.addEventListener('click', () => {
+      lightboxImg.classList.remove('visible');
+      setTimeout(() => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        lightboxImg.src = images[currentIndex].src;
+        setTimeout(() => lightboxImg.classList.add('visible'), 100);
+      }, 200);
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove('show');
+        lightboxImg.classList.remove('visible');
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('show')) return;
+      if (e.key === 'ArrowRight') nextBtn.click();
+      if (e.key === 'ArrowLeft') prevBtn.click();
+      if (e.key === 'Escape') closeBtn.click();
+    });
+
+    
+  // ==============================
+  // 🎚️ تأثير السحب (قبل / بعد)
+  // ==============================
+  const range = document.getElementById("baRange");
+  const afterImg = document.querySelector(".ba-after");
+  if (range && afterImg) {
+    range.addEventListener("input", () => {
+      const value = range.value;
+      afterImg.style.clipPath = `inset(0 ${100 - value}% 0 0)`;
+    });
+  }
+
+
+
+  </script>
+
+</body>
+</html>

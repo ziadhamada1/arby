@@ -1,0 +1,1187 @@
+/* Reset */
+* {
+  padding: 0;
+  margin: 0;
+  scroll-behavior: smooth;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  /* font-family: 'Tajawal', sans-serif; */
+font-family: 'cairo';
+
+}
+
+body {
+
+  color: #ededed;
+  background: #0C2D57;
+
+  direction: rtl;
+  
+    font-family: 'Cairo', sans-serif;
+
+  font-family: 'Cairo', sans-serif;
+
+
+  
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px 20px;
+  background-color: #0C2D57;
+  color: #fff;
+  position: fixed;
+  width: 100%;
+  z-index:999 ;
+  
+}
+.header-buttons {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.header-buttons button {
+  background: transparent;
+  border: 2px solid #FC6736;
+  color: #FC6736;
+  padding: 8px 12px;
+  border-radius: 30px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.header-buttons button:hover {
+  background-color: #FC6736;
+  color: white;
+}
+
+
+.logo img {
+  height: 50px;
+}
+
+/* الروابط في الشاشات الكبيرة */
+.navbar {
+  display: flex;
+  gap: 60px;
+  font-weight: 500;
+}
+
+.nav-link {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #FC6736;
+}
+
+/* أيقونة المينيو */
+.menu-icon {
+  display: none;
+  font-size: 24px;
+  cursor: pointer;
+  color: white;
+  z-index: 1100;
+  position: relative;
+}
+
+/* أيقونة الإغلاق */
+.close-icon {
+  display: none;
+  font-size: 24px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  color: white;
+}
+
+/* ميديا كويري للشاشات الصغيرة */
+@media (max-width: 768px) {
+  .navbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 75%;
+    height: 100%;
+    background-color: #021733;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px 20px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+  }
+
+  .navbar.active {
+    transform: translateX(0);
+  }
+
+  .close-icon {
+    display: block;
+  }
+
+  .menu-icon {
+    display: block;
+  }
+
+  .nav-link {
+    padding: 10px 0;
+    font-size: 20px;
+    width: 100%;
+  }
+}
+/* ظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظ */
+
+
+/* ---------- Home Section ---------- */
+.home {
+  position: relative;
+  width: 100%;
+  background: #0C2D57;
+  background-size: cover;
+  background-position: center;
+  padding: 70px 10px 20px;
+  display: flex;
+  align-items: center;
+    padding-top: 100px;
+}
+
+.home-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  width: 100%;
+  margin-top: 30px;
+}
+
+/* ---------- صورة ---------- */
+.home-img img {
+  width: 450px;
+  height: 450px;
+  border-radius: 50%;
+  animation: sllicetop 1s ease forwards;
+  filter: drop-shadow(0 0 50px #021225);
+}
+
+/* ---------- النص ---------- */
+.home-text {
+  width: 50%;
+  margin-top: 50px;
+  color: #fff;
+}
+
+.home-text h3 {
+  font-size: 20px;
+  font-weight: 500;
+  opacity: 0;
+  animation: sllied 1s ease forwards;
+  animation-delay: 0.7s;
+}
+
+.home-text h1 {
+  font-size: 50px;
+  font-weight: 00;
+  margin: -5px 0;
+  color: #FC6736;
+  opacity: 0;
+  animation: slliceRight 1s ease forwards;
+  animation-delay: 1s;
+}
+
+.home-text h3 span {
+  color: #0cf;
+}
+
+.home-text p {
+  font-size: 17px;
+  line-height: 25px;
+  margin-top: 15px;
+  opacity: 0;
+  animation: sllicelift 1s ease forwards;
+  animation-delay: 1s;
+}
+
+.home-text p span {
+  display: block;
+  color: #FC6736;
+  font-size: 20px;
+  font-weight: 600;
+  margin-top: 10px;
+}
+
+/* ---------- الأيقونات ---------- */
+.home-sci {
+  margin: 30px 0;
+}
+
+.home-sci a {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  margin: 0 10px 10px 0;
+  background: transparent;
+  border: 2px solid #0cf;
+  border-radius: 50%;
+  font-size: 20px;
+  color: #0cf;
+  transition: 0.5s ease;
+  text-decoration: none;
+  opacity: 0;
+  animation: sllicelift 1s ease forwards;
+}
+
+.home-sci a:hover {
+  background-color: #0cf;
+  color: #fff;
+  box-shadow: 0 0 20px #FC6736;
+}
+
+/* ---------- زر CTA ---------- */
+.btn {
+  display: inline-block;
+  padding: 12px 20px;
+  background: #FC6736;
+  border-radius: 40px;
+  font-size: 16px;
+  color: #fff;
+  letter-spacing: 1px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 0 5px #FC6736;
+  opacity: 0;
+  animation: sllicetop 1s ease forwards;
+  animation-delay: 2s;
+}
+
+.btn:hover {
+  box-shadow:
+    0 0 20px #FC6736,
+    0 0 35px #FC6736,
+    0 0 70px #FC6736,
+    0 0 100px #FC6736;
+}
+
+/* ---------- Media Queries ---------- */
+@media (max-width: 992px) {
+  .home-text {
+    width: 100%;
+    text-align: center;
+  }
+
+  .home-text h1 {
+    font-size: 40px;
+  }
+
+  .home-img img {
+    width: 300px;
+    height: 300px;
+  }
+
+  .home-container {
+    flex-direction: column-reverse;
+    gap: 30px;
+  }
+
+  .btn {
+    margin-top: 20px;
+  }
+
+  .home-sci a {
+    margin: 10px;
+  }
+}
+/* //////////////////////////////////////////////////////////////////////////////////// */
+.bannar{
+background: url(imgs/banner-3coppy.jpg) no-repeat center center/cover;
+
+height: 30vh;
+width: 100%;
+
+
+
+}
+
+
+
+
+
+
+
+
+/* ظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظ */
+
+.about {
+  position: relative;
+  width: 100%;
+  background: linear-gradient(to right, #0C2D57, #021733);
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  padding: 70px 10px 40px;
+  gap: 40px;
+  flex-wrap: wrap; /* يسمح بالكسر في الشاشات الصغيرة */
+}
+
+.contenar {
+  display: flex;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+
+.about-img {
+  flex: 1 1 450px;
+  max-width: 450px;
+  position: relative;
+}
+
+.about-img img {
+  width: 100%;
+  height: auto;
+  max-width: 450px;
+  border-radius: 50%;
+  animation: smooth-wiggle 3s ease infinite alternate;
+  transition: box-shadow 0.3s ease;
+}
+
+.about-img img:hover {
+  box-shadow: 0px 0px 90px #FC6736;
+}
+
+.about-text {
+  flex: 1 1 450px;
+  max-width: 600px;
+  color: #fff;
+  text-align: right;
+}
+
+.about-text h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+  opacity: 0;
+  animation: slliceRight 1s ease forwards;
+}
+
+.about-text h2 span {
+  color: #FC6736;
+}
+
+.about-text h4 {
+  font-size: 32px;
+  margin-bottom: 15px;
+  opacity: 0;
+  color: #FC6736;
+  animation: sllicelift 1s ease forwards;
+  animation-delay: 0.5s;
+}
+
+.about-text p {
+  line-height: 1.6;
+  margin: 20px 0;
+  font-size: 18px;
+  opacity: 0;
+  animation: slliceRight 1s ease forwards;
+  animation-delay: 1s;
+}
+
+.btn.az {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #FC6736;
+  border-radius: 40px;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 600;
+  text-decoration: none;
+  box-shadow: 0 0 5px #FC6736;
+  transition: box-shadow 0.3s ease;
+}
+
+.btn.az:hover {
+  box-shadow:
+    0 0 20px #FC6736,
+    0 0 35px #FC6736,
+    0 0 70px #FC6736,
+    0 0 100px #FC6736,
+    0 0 200px #FC6736;
+}
+
+/* ========== Responsive ========== */
+@media (max-width: 992px) {
+  .about-text h2 {
+    font-size: 32px;
+  }
+
+  .about-text h4 {
+    font-size: 28px;
+  }
+
+  .about-text p {
+    font-size: 16px;
+  }
+
+  .btn.az {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .about {
+    padding: 50px 15px 30px;
+  }
+
+  .contenar {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .about-img,
+  .about-text {
+    max-width: 100%;
+    flex: unset;
+  }
+
+  .about-img img {
+    width: 300px;
+    height: 300px;
+  }
+
+  .about-text {
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-img img {
+    width: 250px;
+    height: 250px;
+  }
+
+  .about-text h2 {
+    font-size: 26px;
+  }
+
+  .about-text h4 {
+    font-size: 22px;
+  }
+
+  .about-text p {
+    font-size: 14px;
+  }
+
+  .btn.az {
+    padding: 10px 20px;
+    font-size: 14px;
+  }
+}
+.about {
+  position: relative;
+  overflow: hidden;
+}
+
+/* تأثير الضوء حول الماوس */
+.mouse-light {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 50px; /* خليها أكبر شوية لتوهج أقوى */
+  height: 50px;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.6), transparent 100%); /* أبيض وتوهج أقوى */
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+  filter: blur(10px); /* تليين الحواف لجعلها سموز */
+  transition: transform 0.1s linear;
+}
+
+
+
+
+
+/* ========== Animations (يمكن تستخدم الأنيميشن اللي انت محدده) ========== */
+@keyframes slliceRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes sllicelift {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes smooth-wiggle {
+  0% {
+    transform: rotate(0deg);
+  }
+  50% {
+    transform: rotate(5deg);
+  }
+  100% {
+    transform: rotate(-5deg);
+  }
+}
+/* ////////////////////////////////////////////////////////// */
+
+.image-slider-section {
+  background: #0C2D57;
+  padding: 40px 0;
+  overflow: hidden;
+}
+
+.image-slider ,.image-slider1{
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  margin-bottom: 10px;
+}
+
+.slider-track  {
+  display: flex;
+  width: max-content;
+  animation: scroll-once 1000s ease infinite; /* يتحرك مرة واحدة فقط */
+}
+
+
+.slider-track img ,.slider-track1 img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
+  margin: 0 10px;
+  box-shadow: 0 0 10px #0004;
+}
+
+/* الحركة من اليمين للشمال وتختفي في النهاية */
+@keyframes scroll-once {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-120%);
+  }
+}
+@keyframes scroll-oncee {
+  0% {
+    transform: translateX(-120%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+.slider-track img:hover,
+.slider-track1 img:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 20px rgba(252, 103, 54, 0.7);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* عشان لما تخرج الماوس ترجع الصورة لحجمها الطبيعي بسلاسة */
+.slider-track img,
+.slider-track1 img {
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+
+/* ظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظ */
+
+.border{
+  width: 100%;
+  height: 1px;
+  background-color: #FC6736;
+}
+.image-container {
+  text-decoration: none;
+  color: inherit;
+}
+
+
+.features-section {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 60px 20px;
+  background-color: #021733;
+  flex-wrap: wrap;
+  direction: rtl;
+}
+
+.feature-box {
+  background-color: #0C2D57;
+  border-radius: 15px;
+  overflow: hidden;
+  width: calc(25% - 30px);
+  text-align: center;
+  position: relative;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.feature-box:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 0 25px rgba(252, 103, 54, 0.5);
+}
+
+.image-container {
+  display: block;
+  position: relative;
+  overflow: hidden;
+}
+
+.image-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.image-container:hover img {
+  transform: scale(1.1);
+}
+
+.text-overlay {
+  padding: 20px;
+  color: white;
+  text-align: center;
+}
+
+.text-overlay h3 {
+  color: #FC6736;
+  font-size: 1.4rem;
+  margin-bottom: 10px;
+  
+}
+
+.text-overlay p {
+  font-size: 0.95rem;
+  color: #ccc;
+}
+.feature-btn {
+  background-color: #FC6736;
+  color: white;
+  border: none;
+  border-radius: 25px;
+  padding: 10px 25px;
+  font-size: 0.95rem;
+  margin-top: 15px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.feature-btn:hover {
+  background-color: #ff8555;
+  transform: scale(1.05);
+}
+
+
+/* 🎯 موبايل */
+@media (max-width: 992px) {
+  .feature-box {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 600px) {
+  .feature-box {
+    width: 100%;
+  }
+}
+
+
+/* ظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظ */
+
+.testimonials {
+  background-color: #0C2D57;
+  padding: 60px 20px;
+  text-align: center;
+  color: white;
+}
+
+.section-title {
+  font-size: 40px;
+  margin-bottom: 40px;
+  color: #fff;
+}
+
+.section-title span {
+  color: #FC6736;
+}
+
+.testimonial-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.testimonial-card {
+  background-color: #021733;
+  border-radius: 12px;
+  padding: 20px;
+  width: 300px;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  transition: transform 0.3s;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-5px);
+}
+
+.testimonial-card img {
+  width: 60px;
+  height: 60px;
+  object-fit: contain;
+  margin-bottom: 10px;
+}
+
+.testimonial-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #ffcc00;
+}
+
+.stars {
+  color: #FFD700;
+  margin-bottom: 10px;
+}
+
+.testimonial-text {
+  font-size: 16px;
+  line-height: 1.4;
+}
+.testimonial-icon {
+  font-size: 50px;
+  color: #FC6736;
+  margin-bottom: 10px;
+}
+
+
+/* //////////////////////////////////////////////////////////////// */
+
+.product-slider-section {
+  position: relative;
+  max-width: 100%;
+  /* overflow: hidden; */
+  height: 100vh;
+  /* margin: 50px auto; */
+}
+
+.product-slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.product-slide {
+  position: absolute;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+  width: 100%;
+  height: 100%;
+}
+
+.product-slide.active {
+  opacity: 1;
+  z-index: 1;
+}
+
+.product-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  padding: 40px;
+  
+}
+
+/* Caption Style */
+.caption {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  padding: 15px 25px;
+  border-radius: 10px;
+  font-size: 1.4rem;
+  opacity: 0;
+}
+
+/* Animation */
+.product-slide.active .caption {
+  animation: fadeInUp 1s ease forwards;
+  animation-delay: 0.5s; /* تأخير بعد الصورة */
+}
+
+@keyframes fadeInUp {
+  from {
+    transform: translateY(30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+
+
+
+
+
+/* /////////////////////////////////////////////////// */
+
+/* ✅ قسم تواصل معنا */
+.contact-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 60vh;
+  background-color: #021733; /* الخلفية */
+  text-align: center;
+  color: white;
+}
+
+
+/* ✅ العنوان */
+.contact-content h2 {
+  font-size: 2rem;
+  color: #fff;
+  margin-bottom: 30px;
+}
+
+/* ✅ الزرار */
+.whatsapp-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  background-color: #0C2D57;
+  color: white;
+  padding: 5px 60px;
+  border-radius: 50px;
+  font-size: 1.6rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.whatsapp-btn img {
+  width: 40px;
+  height: 40px;
+}
+
+.whatsapp-btn:hover {
+  transform: scale(1.08);
+  box-shadow: 0 1px 30px #92add1;
+}
+/* ظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظظ */
+/* ===== gallery ===== */
+.gallery-section {
+  padding: 90px 20px 40px; /* خلي مساحة من الهيدر الثابت */
+  background: #f7f7f7;
+  direction: rtl;
+  text-align: center;
+  background-color: #0C2D57;
+}
+
+.section-title {
+  font-size: 1.5rem;
+  color: #0C2D57;
+  margin-bottom: 20px;
+}
+
+/* شبكة 3x3 مريحة */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  max-width: 1100px;
+  margin: 0 auto;
+  align-items: stretch;
+}
+
+.thumb {
+  display: block;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(12,45,87,0.08);
+  background: white;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  text-decoration: none;
+}
+
+.thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  min-height: 80px;
+  aspect-ratio: 1 / 1;
+}
+
+/* تأثير عند المرور */
+.thumb:hover {
+  transform: translateY(-6px) scale(1.02);
+  box-shadow: 0 12px 30px rgba(12,45,87,0.12);
+}
+
+/* responsive: شاشات صغيرة تتحول 2x أو 1x */
+@media (max-width: 900px) {
+  .gallery-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (max-width: 480px) {
+  .gallery-grid {
+    grid-template-columns: 1fr;
+  }
+  .gallery-section { padding-top: 110px; } /* لو الهيدر ثابت */
+}
+
+/* ===== footer ===== */
+
+.site-footer {
+  background: #0C2D57;
+  color: #fff;
+  padding: 30px 20px;
+  border-top: 4px solid rgba(252,103,54,0.12); /* لمسة من اللون اللامع */
+}
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  gap: 30px;
+  align-items: flex-start;
+  justify-content: space-between;
+  direction: rtl;
+  flex-wrap: wrap;
+}
+
+.footer-col {
+  min-width: 180px;
+  flex: 1 1 220px;
+}
+
+.logo-col .footer-logo img {
+  height: 54px;
+  display: block;
+  margin-bottom: 10px;
+}
+
+.footer-col h4 {
+  margin: 0 0 10px 0;
+  color: #FC6736;
+  font-size: 1rem;
+}
+
+.footer-nav a {
+  display: block;
+  color: #fff;
+  text-decoration: none;
+  margin: 6px 0;
+  transition: color 0.2s;
+}
+.footer-nav a:hover { color: #FC6736; }
+.contact-col i {
+  color: #FC6736; /* لون الأيقونات */
+  margin-left: 8px; /* مسافة بين الأيقونة والنص */
+  font-size: 1.1rem; /* حجم الأيقونة */
+  vertical-align: middle; /* محاذاة مع النص */
+  transition: color 0.3s ease;
+}
+
+.contact-col i:hover {
+  color: #ff884d; /* لون مختلف عند المرور */
+}
+
+/* نص الصغير */
+.site-footer p { margin: 6px 0; font-size: 0.95rem; color: rgba(255,255,255,0.9); }
+@media (max-width: 768px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .footer-col {
+    flex: none;
+    width: 100%;
+    max-width: 350px;
+  }
+
+  .footer-col h4 {
+    margin-top: 15px;
+  }
+
+  .logo-col .footer-logo img {
+    margin: 0 auto 10px;
+  }
+}
+
+
+/* إذا أردت الفوتر ملتصق لأسفل الصفحة: */
+/* body { min-height: 100vh; display: flex; flex-direction: column; } */
+/* main { flex: 1 0 auto; } */
+/* .site-footer { flex-shrink: 0; } */
+
+
+
+
+
+
+
+
+
+/* ---------- Animations ---------- */
+
+@keyframes sllicetop {
+  0% {
+    transform: translateY(-50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slliceRight {
+  0% {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes sllied {
+  0% {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes sllicelift {
+  0% {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+@keyframes rise {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-20vh);
+    opacity: 0;
+  }
+}
+
+
+
+
+.bubbles {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.bubbles span {
+  position: absolute;
+  bottom: 0;
+  width: 12px;
+  height: 12px;
+  background: rgba(4, 129, 247, 0.5);
+  border-radius: 50%;
+  animation: rise 3s infinite ease-in;
+  opacity: 0;
+}
+
+.about-img:hover .bubbles span {
+  opacity: 1;
+}
+
+.bubbles span:nth-child(1) { left: 20%; animation-delay: 0s; }
+.bubbles span:nth-child(2) { left: 40%; animation-delay: 0.3s; }
+.bubbles span:nth-child(3) { left: 60%; animation-delay: 0.6s; }
+.bubbles span:nth-child(4) { left: 80%; animation-delay: 0.9s; }
+.bubbles span:nth-child(5) { left: 50%; animation-delay: 1.2s; }
+
+
+
+
+
+body.dark-mode {
+  background-color: #121212;
+  color: #ddd;
+}
+body.dark-mode .features-section,
+
+body.dark-mode .contact-section,
+body.dark-mode .about,
+body.dark-mode .home {
+  background: #1E1E1E;
+  /* ممكن تعدل الألوان حسب احتياجك */
+}
+body.dark-mode .site-footer,
+body.dark-mode .testimonials,
+body.dark-mode .image-slider-section{
+  background: #131212;
+  /* ممكن تعدل الألوان حسب احتياجك */
+}
+
+body.dark-mode .btn.az {
+  background-color: #FC6736;
+  box-shadow: 0 0 10px #FC6736;
+  color: white;
+}
+
+body.dark-mode .header {
+  background-color: #111;
+}
+
+

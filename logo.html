@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>معرض السوشيال ميديا</title>
+  <style>
+    body {
+      background-color: #021733;
+      color: white;
+      font-family: "Cairo", sans-serif;
+      margin: 0;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #FC6736;
+      margin-bottom: 40px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 30px;
+      justify-content: center;
+    }
+
+    .gallery img {
+      width: 100%;
+      height: auto;
+      border-radius: 15px;
+      cursor: pointer;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 25px rgba(252, 103, 54, 0.5);
+    }
+
+    /* زر الرجوع */
+    a.back-btn {
+      display: block;
+      text-align: center;
+      margin-top: 40px;
+      background: #FC6736;
+      color: white;
+      padding: 12px 25px;
+      border-radius: 25px;
+      text-decoration: none;
+      font-weight: bold;
+      width: fit-content;
+      margin-left: auto;
+      margin-right: auto;
+      transition: background 0.3s ease;
+    }
+
+    a.back-btn:hover {
+      background: #ff8555;
+    }
+
+    /* ✅ نافذة عرض الصورة */
+    .lightbox {
+      display: none;
+      position: fixed;
+      z-index: 9999;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 85%;
+      border-radius: 15px;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+
+    .lightbox.show {
+      display: flex;
+      animation: fadeIn 0.4s ease;
+    }
+
+    .lightbox img.visible {
+      opacity: 1;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    /* زر الإغلاق */
+    .close-btn {
+      position: absolute;
+      top: 30px;
+      right: 40px;
+      font-size: 40px;
+      color: #FC6736;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .close-btn:hover {
+      color: white;
+      transform: scale(1.1);
+    }
+
+    /* الأسهم */
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 50px;
+      color: #FC6736;
+      cursor: pointer;
+      user-select: none;
+      transition: 0.3s;
+    }
+
+    .arrow:hover {
+      color: white;
+      transform: translateY(-50%) scale(1.2);
+    }
+
+    .arrow.left {
+      left: 40px;
+    }
+
+    .arrow.right {
+      right: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>لوجوهات</h1>
+
+  <div class="gallery">
+
+  <img src="LOGOS/1L.jpg" alt="">
+  <img src="LOGOS/2L.jpg" alt="">
+  <img src="LOGOS/3L.jpg" alt="">
+  <img src="LOGOS/4L.jpg" alt="">
+  <img src="LOGOS/5L.jpg" alt="">
+  <img src="LOGOS/6L.jpg" alt="">
+  <img src="LOGOS/7L.jpg" alt="">
+  <img src="LOGOS/8L.jpg" alt="">
+  <img src="LOGOS/9L.jpg" alt=""> 
+  <img src="LOGOS/10L.jpg" alt="">
+  <img src="LOGOS/11L.jpg" alt="">
+  <img src="LOGOS/12L.jpg" alt="">
+  <img src="LOGOS/13L.jpg" alt="">
+  <img src="LOGOS/14L.jpg" alt="">
+  <img src="LOGOS/15L.jpg" alt="">
+  <img src="LOGOS/16L.jpg" alt="">
+  <img src="LOGOS/17L.jpg" alt="">
+  <img src="LOGOS/18L.jpg" alt="">
+  <img src="LOGOS/19L.jpg" alt="">
+  <img src="LOGOS/20L.jpg" alt="">
+  <img src="LOGOS/21L.jpg" alt="">
+  <img src="LOGOS/22L.jpg" alt="">
+  <img src="LOGOS/23L.jpg" alt="">
+  <img src="LOGOS/24L.jpg" alt="">
+  <img src="LOGOS/25L.jpg" alt="">
+  <img src="LOGOS/26L.jpg" alt="">
+  <img src="LOGOS/27L.jpg" alt="">
+  <img src="LOGOS/28L.jpg" alt="">
+  <img src="LOGOS/29L.jpg" alt="">
+  <img src="LOGOS/30L.jpg" alt="">
+  <img src="LOGOS/31L.jpg" alt="">
+  <img src="LOGOS/32L.jpg" alt="">
+  <img src="LOGOS/33L.jpg" alt="">
+  <img src="LOGOS/34L.jpg" alt="">
+  <img src="LOGOS/35L.jpg" alt="">
+  <img src="LOGOS/36L.jpg" alt="">
+  <img src="LOGOS/37L.jpg" alt="">
+  <img src="LOGOS/38L.jpg" alt="">
+  <img src="LOGOS/39L.jpg" alt="">
+  <img src="LOGOS/40L.jpg" alt="">
+  <img src="LOGOS/41L.jpg" alt="">
+  <img src="LOGOS/42L.jpg" alt="">
+  <img src="LOGOS/43L.jpg" alt="">
+  <img src="LOGOS/44L.jpg" alt="">
+  <img src="LOGOS/45L.jpg" alt="">
+  <img src="LOGOS/46L.jpg" alt="">
+  <img src="LOGOS/47L.jpg" alt="">
+  <img src="LOGOS/48L.jpg" alt="">
+  <img src="LOGOS/49L.jpg" alt="">
+  <img src="LOGOS/50L.jpg" alt="">
+
+  
+  
+  
+    <img src="LOGOS/51L.jpg" alt="">
+  <img src="LOGOS/52L.jpg" alt="">
+  <img src="LOGOS/53L.jpg" alt="">
+  <img src="LOGOS/54L.jpg" alt="">
+  <img src="LOGOS/55L.jpg" alt="">
+  <img src="LOGOS/56L.jpg" alt="">
+  <img src="LOGOS/57L.jpg" alt="">
+  <img src="LOGOS/58L.jpg" alt="">
+  <img src="LOGOS/59L.jpg" alt=""> 
+  <img src="LOGOS/60L.jpg" alt="">
+  <img src="LOGOS/61L.jpg" alt="">
+  <img src="LOGOS/62L.jpg" alt="">
+  <img src="LOGOS/63L.jpg" alt="">
+  <img src="LOGOS/64L.jpg" alt="">
+  <img src="LOGOS/65L.jpg" alt="">
+  <img src="LOGOS/66L.jpg" alt="">
+  <img src="LOGOS/67L.jpg" alt="">
+  <img src="LOGOS/68L.jpg" alt="">
+  <img src="LOGOS/69L.jpg" alt="">
+  <img src="LOGOS/70L.jpg" alt="">
+  <img src="LOGOS/71L.jpg" alt="">
+  <img src="LOGOS/72L.jpg" alt="">
+  <img src="LOGOS/73L.jpg" alt="">
+  <img src="LOGOS/74L.jpg" alt="">
+  <img src="LOGOS/75L.jpg" alt="">
+  <img src="LOGOS/76L.jpg" alt="">
+  <img src="LOGOS/77L.jpg" alt="">
+  <img src="LOGOS/78L.jpg" alt="">
+  <img src="LOGOS/79L.jpg" alt="">
+  <img src="LOGOS/80L.jpg" alt="">
+  <img src="LOGOS/81L.jpg" alt="">
+  <img src="LOGOS/82L.jpg" alt="">
+  <img src="LOGOS/83L.jpg" alt="">
+  <img src="LOGOS/84L.jpg" alt="">
+  <img src="LOGOS/85L.jpg" alt="">
+  <img src="LOGOS/86L.jpg" alt="">
+  <img src="LOGOS/87L.jpg" alt="">
+  <img src="LOGOS/88L.jpg" alt="">
+  <img src="LOGOS/89L.jpg" alt="">
+  <img src="LOGOS/90L.jpg" alt="">
+  <img src="LOGOS/91L.jpg" alt="">
+  <img src="LOGOS/92L.jpg" alt="">
+  <img src="LOGOS/93L.jpg" alt="">
+  <img src="LOGOS/94L.jpg" alt="">
+  <img src="LOGOS/95L.jpg" alt="">
+  <img src="LOGOS/96L.jpg" alt="">
+  <img src="LOGOS/97L.jpg" alt="">
+  <img src="LOGOS/98L.jpg" alt="">
+  <img src="LOGOS/99L.jpg" alt="">
+  <img src="LOGOS/101L.jpg" alt="">
+  <img src="LOGOS/102L.jpg" alt="">
+  <img src="LOGOS/103L.jpg" alt="">
+  <img src="LOGOS/104L.jpg" alt="">
+  <img src="LOGOS/105L.jpg" alt="">
+  <img src="LOGOS/106L.jpg" alt="">
+  <img src="LOGOS/107L.jpg" alt="">
+  <img src="LOGOS/108L.jpg" alt="">
+  <img src="LOGOS/109L.jpg" alt="">
+  <img src="LOGOS/110L.jpg" alt="">
+  <img src="LOGOS/111L.jpg" alt="">
+  <img src="LOGOS/112L.jpg" alt="">
+  <img src="LOGOS/113L.jpg" alt="">
+  <img src="LOGOS/114L.jpg" alt="">
+  <img src="LOGOS/115L.jpg" alt="">
+  <img src="LOGOS/116L.jpg" alt="">
+  <img src="LOGOS/117L.jpg" alt="">
+  <img src="LOGOS/118L.jpg" alt="">
+  <img src="LOGOS/119L.jpg" alt="">
+  <img src="LOGOS/120L.jpg" alt="">
+  <img src="LOGOS/121L.jpg" alt="">
+  <img src="LOGOS/122L.jpg" alt="">
+  <img src="LOGOS/123L.jpg" alt="">
+  <img src="LOGOS/124L.jpg" alt="">
+  <img src="LOGOS/125L.jpg" alt="">
+  <img src="LOGOS/126L.jpg" alt="">
+  <img src="LOGOS/127L.jpg" alt="">
+  <img src="LOGOS/128L.jpg" alt="">
+  <img src="LOGOS/129L.jpg" alt="">
+  <img src="LOGOS/130L.jpg" alt="">
+  <img src="LOGOS/131L.jpg" alt="">
+  <img src="LOGOS/132L.jpg" alt="">
+  <img src="LOGOS/133L.jpg" alt="">
+  <img src="LOGOS/134L.jpg" alt="">
+  <img src="LOGOS/135L.jpg" alt="">
+  <img src="LOGOS/136L.jpg" alt="">
+  <img src="LOGOS/137L.jpg" alt="">
+  <img src="LOGOS/138L.jpg" alt="">
+  <img src="LOGOS/139L.jpg" alt="">
+  <img src="LOGOS/140L.jpg" alt="">
+  <img src="LOGOS/141L.jpg" alt="">
+  <img src="LOGOS/142L.jpg" alt="">
+  <img src="LOGOS/143L.jpg" alt="">
+  <img src="LOGOS/144L.jpg" alt="">
+  <img src="LOGOS/145L.jpg" alt="">
+  <img src="LOGOS/146L.jpg" alt="">
+  <img src="LOGOS/147L.jpg" alt="">
+  <img src="LOGOS/148L.jpg" alt="">
+  <img src="LOGOS/149L.jpg" alt="">
+  <img src="LOGOS/150L.jpg" alt="">
+  <img src="LOGOS/151L.jpg" alt="">
+  <img src="LOGOS/152L.jpg" alt="">
+  <img src="LOGOS/153L.jpg" alt="">
+  <img src="LOGOS/154L.jpg" alt="">
+  <img src="LOGOS/155L.jpg" alt="">
+  <img src="LOGOS/156L.jpg" alt="">
+  <img src="LOGOS/157L.jpg" alt="">
+  <img src="LOGOS/158L.jpg" alt="">
+  <img src="LOGOS/159L.jpg" alt="">
+  <img src="LOGOS/160L.jpg" alt="">
+  <img src="LOGOS/161L.jpg" alt="">
+  <img src="LOGOS/162L.jpg" alt="">
+  
+
+
+  
+  
+  
+  
+  
+  
+
+  
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+  <a href="index.html " class="back-btn">رجوع للقسم</a>
+
+  <!-- ✅ نافذة العرض -->
+  <div class="lightbox" id="lightbox">
+    <span class="close-btn" id="closeBtn">&times;</span>
+    <span class="arrow left" id="prev">&#10094;</span>
+    <img id="lightboxImg" src="" alt="">
+    <span class="arrow right" id="next">&#10095;</span>
+  </div>
+
+  <script>
+    const images = document.querySelectorAll('.gallery img');
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightboxImg');
+    const closeBtn = document.getElementById('closeBtn');
+    const nextBtn = document.getElementById('next');
+    const prevBtn = document.getElementById('prev');
+
+    let currentIndex = 0;
+
+    images.forEach((img, index) => {
+      img.addEventListener('click', () => {
+        currentIndex = index;
+        showImage();
+      });
+    });
+
+    function showImage() {
+      lightboxImg.classList.remove('visible'); // اخفاء تدريجي
+      setTimeout(() => {
+        lightboxImg.src = images[currentIndex].src;
+        lightbox.classList.add('show');
+        setTimeout(() => lightboxImg.classList.add('visible'), 100);
+      }, 200);
+    }
+
+    closeBtn.addEventListener('click', () => {
+      lightbox.classList.remove('show');
+      lightboxImg.classList.remove('visible');
+    });
+
+    nextBtn.addEventListener('click', () => {
+      lightboxImg.classList.remove('visible');
+      setTimeout(() => {
+        currentIndex = (currentIndex + 1) % images.length;
+        lightboxImg.src = images[currentIndex].src;
+        setTimeout(() => lightboxImg.classList.add('visible'), 100);
+      }, 200);
+    });
+
+    prevBtn.addEventListener('click', () => {
+      lightboxImg.classList.remove('visible');
+      setTimeout(() => {
+        currentIndex = (currentIndex - 1 + images.length) % images.length;
+        lightboxImg.src = images[currentIndex].src;
+        setTimeout(() => lightboxImg.classList.add('visible'), 100);
+      }, 200);
+    });
+
+    lightbox.addEventListener('click', (e) => {
+      if (e.target === lightbox) {
+        lightbox.classList.remove('show');
+        lightboxImg.classList.remove('visible');
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (!lightbox.classList.contains('show')) return;
+      if (e.key === 'ArrowRight') nextBtn.click();
+      if (e.key === 'ArrowLeft') prevBtn.click();
+      if (e.key === 'Escape') closeBtn.click();
+    });
+  </script>
+
+</body>
+</html>
